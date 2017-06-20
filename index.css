@@ -1,0 +1,406 @@
+/* line 5, index.scss */
+html {
+  background: black;
+  text-align: center;
+  font-family: 'Audiowide', sans-serif;
+  font-size: 20px;
+}
+@media (max-width: 440px) {
+  /* line 5, index.scss */
+  html {
+    font-size: 18px;
+  }
+}
+
+/* line 17, index.scss */
+h1,
+h2,
+p {
+  padding: 10px;
+  margin: 10px;
+}
+@media (max-width: 440px) {
+  /* line 17, index.scss */
+  h1,
+  h2,
+  p {
+    padding: 5px;
+    margin: 5px;
+  }
+}
+
+/* line 26, index.scss */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 90%;
+  margin: 50px auto;
+}
+
+/*Board*/
+/* line 39, index.scss */
+.board-container {
+  position: relative;
+}
+
+/* line 43, index.scss */
+.board {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-size: 4rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* line 54, index.scss */
+.row {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+/* line 58, index.scss */
+.row > div {
+  width: 90px;
+  height: 90px;
+  padding: 10px 20px;
+}
+@media (max-width: 440px) {
+  /* line 58, index.scss */
+  .row > div {
+    width: 70px;
+    height: 70px;
+    padding: 5px 10px;
+  }
+}
+
+/* line 70, index.scss */
+.X {
+  color: #ff1012;
+  text-shadow: 0 0 1px white, 0 0 10px #ff1012, 0 0 25px #ff1012;
+}
+/* line 73, index.scss */
+.X.flicker {
+  animation-name: flicker;
+  animation-duration: 5.1s;
+  animation-iteration-count: infinite;
+}
+
+/* line 80, index.scss */
+.O {
+  color: #08ff00;
+  text-shadow: 0 0 1px white, 0 0 10px #08ff00, 0 0 25px #08ff00;
+}
+/* line 83, index.scss */
+.O.flicker {
+  animation-name: flicker;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+/* line 90, index.scss */
+.l1 {
+  border-bottom: 5px solid #72fff7;
+  border-right: 5px solid #72fff7;
+}
+
+/* line 95, index.scss */
+.l2 {
+  border-bottom: 5px solid #72fff7;
+}
+
+/* line 99, index.scss */
+.l3 {
+  border-right: 5px solid #72fff7;
+}
+
+/*Modals*/
+/* line 106, index.scss */
+.modal {
+  position: absolute;
+  top: 50px;
+  left: 58px;
+  width: 300px;
+  height: 250px;
+  background: black;
+  color: #72fff7;
+  z-index: 1;
+  opacity: 0.95;
+  border: 5px solid #72fff7;
+  border-radius: 10px;
+}
+@media (max-width: 440px) {
+  /* line 106, index.scss */
+  .modal {
+    width: 240px;
+    height: 200px;
+    top: 30px;
+    left: 25px;
+  }
+}
+
+/* line 127, index.scss */
+.intro h1 {
+  font-size: 2rem;
+}
+/* line 130, index.scss */
+.intro p span {
+  font-size: 2.5rem;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* line 137, index.scss */
+.setting p {
+  display: flex;
+  justify-content: center;
+}
+/* line 140, index.scss */
+.setting p span {
+  font-size: 1rem;
+}
+
+/* line 145, index.scss */
+.result > div {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* line 150, index.scss */
+.winner {
+  font-size: 1.5rem;
+}
+
+/* line 154, index.scss */
+.play-again {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/*Player Scores*/
+/* line 162, index.scss */
+.info {
+  width: 200px;
+  height: 250px;
+  border: 1.5px solid #72fff7;
+  border-radius: 10px;
+  margin: 0 50px;
+  opacity: 0;
+  font-size: 1.2rem;
+}
+@media (max-width: 900px) {
+  /* line 162, index.scss */
+  .info {
+    display: none!important;
+  }
+}
+
+/* line 175, index.scss */
+.player {
+  order: 1;
+}
+
+/* line 179, index.scss */
+.comp-info {
+  order: 2;
+}
+
+/* line 183, index.scss */
+h2 {
+  font-size: 1.5rem;
+}
+
+/* line 187, index.scss */
+.player-message {
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+/*Dot loader*/
+/* line 196, index.scss */
+.loader {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 150px;
+  height: 30px;
+}
+/* line 203, index.scss */
+.loader > div {
+  opacity: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+/* line 213, index.scss */
+.loader-o {
+  background: #08ff00;
+  box-shadow: 0 0 5px #08ff00, 0 0 10px #ff4345, 0 0 25px #39ff33;
+}
+
+/* line 218, index.scss */
+.loader-x {
+  background: #ff1012;
+  box-shadow: 0 0 5px #ff4345, 0 0 10px #ff1012, 0 0 25px #ff1012;
+}
+
+/* line 223, index.scss */
+.dot-a {
+  animation-name: dot-a;
+}
+
+/* line 227, index.scss */
+.dot-b {
+  animation-name: dot-b;
+}
+
+/* line 231, index.scss */
+.dot-c {
+  animation-name: dot-c;
+}
+
+/*Animation Keyframes*/
+@keyframes dot-a {
+  /* line 239, index.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 242, index.scss */
+  25% {
+    opacity: 1;
+  }
+
+  /* line 245, index.scss */
+  50% {
+    opacity: 0;
+  }
+
+  /* line 248, index.scss */
+  75% {
+    opacity: 0;
+  }
+
+  /* line 251, index.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dot-b {
+  /* line 257, index.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 260, index.scss */
+  25% {
+    opacity: 0;
+  }
+
+  /* line 263, index.scss */
+  50% {
+    opacity: 1;
+  }
+
+  /* line 266, index.scss */
+  75% {
+    opacity: 0;
+  }
+
+  /* line 269, index.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dot-c {
+  /* line 275, index.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 278, index.scss */
+  25% {
+    opacity: 0;
+  }
+
+  /* line 281, index.scss */
+  50% {
+    opacity: 0;
+  }
+
+  /* line 284, index.scss */
+  75% {
+    opacity: 1;
+  }
+
+  /* line 287, index.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  /* line 293, index.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 296, index.scss */
+  25% {
+    opacity: 0.75;
+  }
+
+  /* line 299, index.scss */
+  50% {
+    opacity: 0.5;
+  }
+
+  /* line 302, index.scss */
+  75% {
+    opacity: 0.75;
+  }
+
+  /* line 305, index.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flicker {
+  /* line 311, index.scss */
+  50% {
+    opacity: 0.85;
+  }
+
+  /* line 314, index.scss */
+  50.5% {
+    opacity: 0.1;
+  }
+
+  /* line 317, index.scss */
+  51% {
+    opacity: 0.9;
+  }
+
+  /* line 320, index.scss */
+  51.5% {
+    opacity: 0.1;
+  }
+
+  /* line 323, index.scss */
+  52% {
+    opacity: 0.85;
+  }
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet"> 
+    <link href="index.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="info">
+        <div class="player flicker">
+          <h2>Player</h2>
+          <p>Score</p>
+          <p class="player-score">0</p>
+          <p class="player-message"></p>
+        </div>
+      </div>
+      <div class="info comp-info">
+        <div class="computer flicker">
+          <h2>Computer</h2>
+          <p>Score</p>
+          <p class="computer-score">0</p>
+          <div class="loader">
+            <div class="dot-a"></div>
+            <div class="dot-b"></div>
+            <div class="dot-c"></div>
+          </div>
+        </div>
+      </div>
+      <div class="board-container">
+        <div class="board">
+          <div class="row">
+            <div data-key="1" class="X l1">X</div>
+            <div data-key="2" class="O l1">O</div>
+            <div data-key="3" class="X l2">X</div>
+          </div>
+          <div class="row">
+            <div data-key="4" class="O l1">O</div>
+            <div data-key="5" class="X l1">X</div>
+            <div data-key="6" class="O l2">O</div>
+          </div>
+          <div class="row">
+            <div data-key="7" class="X l3">X</div>
+            <div data-key="8" class="O l3">O</div>
+            <div data-key="9" class="X">X</div>
+          </div>
+        </div>
+        <div class="intro modal">
+          <h1><span class="O  flicker">Noughts</span> & <span class="X flicker">Crosses</span></h1>
+          <div class="setting">
+            <p>Setting</p>
+            <p><span class="setting-options easy">Easy</span> <span class="setting-options medium">Medium</span> <span class="setting-options hard">Hard</span></p>
+          </div>
+          <div class="choice">
+            <p>Play As</p>
+            <p><span class="O choice-o">O</span> <span class="X choice-x">X</span></p>
+          </div>
+        </div>
+        <div class="result modal">
+          <h2 class="winner"></h2>
+          <div class="scores">
+            <div>
+              <p>Player</p>
+              <p class="player-score">0</p>
+            </div>
+            <div>
+              <p>Computer</p>
+              <p class="computer-score">0</p>
+            </div>
+          </div>
+          <p class="play-again">Play Again</p>
+        </div>
+      </div>
+    </div>
+    <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

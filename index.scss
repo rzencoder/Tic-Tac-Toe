@@ -1,0 +1,330 @@
+ $line-color: #72fff7;
+$o-color: #08ff00;
+$x-color: #ff1012;
+$padding: 10px;
+html {
+  background: black;
+  text-align: center;
+  font-family: 'Audiowide', sans-serif;
+  font-size: 20px;
+  @media (max-width: 440px) {
+    font-size: 18px;
+  }
+}
+
+h1,
+h2,
+p {
+  padding: $padding;
+  margin: 10px;
+  @media (max-width: 440px) {
+    padding: 5px;
+    margin: 5px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 90%;
+  margin: 50px auto;
+}
+
+
+/*Board*/
+
+.board-container {
+  position: relative;
+}
+
+.board {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  font-size: 4rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  > div {
+    width: 90px;
+    height: 90px;
+    padding: 10px 20px;
+    @media (max-width: 440px) {
+      width: 70px;
+      height: 70px;
+      padding: 5px 10px;
+    }
+  }
+}
+
+.X {
+  color: $x-color;
+  text-shadow: 0 0 1px #fff, 0 0 10px $x-color, 0 0 25px $x-color;
+  &.flicker {
+    animation-name: flicker;
+    animation-duration: 5.1s;
+    animation-iteration-count: infinite;
+  }
+}
+
+.O {
+  color: $o-color;
+  text-shadow: 0 0 1px #fff, 0 0 10px $o-color, 0 0 25px $o-color;
+  &.flicker {
+    animation-name: flicker;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+  }
+}
+
+.l1 {
+  border-bottom: 5px solid $line-color;
+  border-right: 5px solid $line-color;
+}
+
+.l2 {
+  border-bottom: 5px solid $line-color;
+}
+
+.l3 {
+  border-right: 5px solid $line-color;
+}
+
+
+/*Modals*/
+
+.modal {
+  position: absolute;
+  top: 50px;
+  left: 58px;
+  width: 300px;
+  height: 250px;
+  background: black;
+  color: $line-color;
+  z-index: 1;
+  opacity: 0.95;
+  border: 5px solid $line-color;
+  border-radius: 10px;
+  @media (max-width: 440px) {
+    width: 240px;
+    height: 200px;
+    top: 30px;
+    left: 25px;
+  }
+}
+
+.intro {
+  h1 {
+    font-size: 2rem;
+  }
+  p span {
+    font-size: 2.5rem;
+    padding: 10px;
+    cursor: pointer;
+  }
+}
+
+.setting p {
+  display: flex;
+  justify-content: center;
+  span {
+    font-size: 1rem;
+  }
+}
+
+.result > div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.winner {
+  font-size: 1.5rem;
+}
+
+.play-again {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+
+/*Player Scores*/
+
+.info {
+  width: 200px;
+  height: 250px;
+  border: 1.5px solid $line-color;
+  border-radius: 10px;
+  margin: 0 50px;
+  opacity: 0;
+  font-size: 1.2rem;
+  @media (max-width: 900px) {
+    display: none!important;
+  }
+}
+
+.player {
+  order: 1;
+}
+
+.comp-info {
+  order: 2;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.player-message {
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+
+/*Dot loader*/
+
+.loader {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 150px;
+  height: 30px;
+  > div {
+    opacity: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+  }
+}
+
+.loader-o {
+  background: $o-color;
+  box-shadow: 0 0 5px $o-color, 0 0 10px lighten($x-color, 10%), 0 0 25px lighten($o-color, 10%);
+}
+
+.loader-x {
+  background: $x-color;
+  box-shadow: 0 0 5px lighten($x-color, 10%), 0 0 10px $x-color, 0 0 25px $x-color;
+}
+
+.dot-a {
+  animation-name: dot-a;
+}
+
+.dot-b {
+  animation-name: dot-b;
+}
+
+.dot-c {
+  animation-name: dot-c;
+}
+
+
+/*Animation Keyframes*/
+
+@keyframes dot-a {
+  0% {
+    opacity: 0
+  }
+  25% {
+    opacity: 1
+  }
+  50% {
+    opacity: 0
+  }
+  75% {
+    opacity: 0
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+@keyframes dot-b {
+  0% {
+    opacity: 0
+  }
+  25% {
+    opacity: 0
+  }
+  50% {
+    opacity: 1
+  }
+  75% {
+    opacity: 0
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+@keyframes dot-c {
+  0% {
+    opacity: 0
+  }
+  25% {
+    opacity: 0
+  }
+  50% {
+    opacity: 0
+  }
+  75% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1
+  }
+  25% {
+    opacity: 0.75
+  }
+  50% {
+    opacity: 0.5
+  }
+  75% {
+    opacity: 0.75
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+@keyframes flicker {
+  50% {
+    opacity: 0.85;
+  }
+  50.5% {
+    opacity: 0.1;
+  }
+  51% {
+    opacity: 0.9;
+  }
+  51.5% {
+    opacity: 0.1;
+  }
+  52% {
+    opacity: 0.85;
+  }
+}
+
+@media (max-width:1000px) {
+  $padding: 1px;
+}
